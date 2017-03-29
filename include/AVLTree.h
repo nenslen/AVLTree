@@ -3,6 +3,7 @@
 
 #include <cstddef> // For NULL
 
+
 struct Node {
     Node* left = NULL;
     Node* right = NULL;
@@ -18,17 +19,20 @@ class AVLTree {
     public:
         AVLTree();
         virtual ~AVLTree();
-
-        Node* findValue(int value);
-        int findMax(Node* n);
         void insertValue(int value);
-        void deleteValue(int value);
+        void printTree();
 
     private:
         Node* root;
 
-        Node* insertValue(int value);
-        Node* insertValue(int value, Node* n);
+        Node* insertValue(Node* n, int value);
+        Node* rotateRR(Node* n);
+        Node* rotateLL(Node* n);
+        Node* rotateLR(Node* n);
+        Node* rotateRL(Node* n);
+        Node* balance(Node* n);
+        int getHeightDifference(Node* n);
+        int getHeight(Node* n);
 };
 
 #endif // AVLTREE_H

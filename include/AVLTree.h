@@ -21,6 +21,7 @@ class AVLTree {
         virtual ~AVLTree();
         void insertValue(int value);
         void printTree();
+        void printStructure();
 
     private:
         Node* root;
@@ -33,6 +34,8 @@ class AVLTree {
         Node* balance(Node* n);
         int getHeightDifference(Node* n);
         int getHeight(Node* n);
+        void printTree(Node* n);
+        void printStructure(Node* n, int level);
 };
 
 #endif // AVLTREE_H

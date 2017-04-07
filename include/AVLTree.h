@@ -20,6 +20,8 @@ class AVLTree {
         AVLTree();
         virtual ~AVLTree();
         void insertValue(int value);
+        int findMax();
+        int findMin();
         void printTree();
         void printStructure();
 
@@ -36,6 +38,7 @@ class AVLTree {
         int getHeight(Node* n);
         void printTree(Node* n);
         void printStructure(Node* n, int level);
+        void deleteTree(Node* n);
 };
 
 #endif // AVLTREE_H

@@ -18,7 +18,16 @@ AVLTree::AVLTree() {
   * Destructor
   */
 AVLTree::~AVLTree() {
-    delete root;
+    deleteTree(root);
+}
+
+
+void AVLTree::deleteTree(Node* n) {
+    if(n != NULL) {
+        deleteTree(n->left);
+        deleteTree(n->right);
+        delete n;
+    }
 }
 
 
@@ -29,6 +38,50 @@ AVLTree::~AVLTree() {
   */
 void AVLTree::insertValue(int value) {
     root = insertValue(root, value);
+}
+
+
+/**
+  * Find the minimum value in the tree
+  *
+  * @return The minimum integer
+  */
+int AVLTree::findMin() {
+    if(root == NULL) {
+        return -1;
+    }
+
+    Node* n = root;
+    int value = root->value;
+
+    while(n != NULL) {
+        value = n->value;
+        n = n->left;
+    }
+
+    return value;
+}
+
+
+/**
+  * Find the maximum value in the tree
+  *
+  * @return The maximum integer
+  */
+int AVLTree::findMax() {
+    if(root == NULL) {
+        return -1;
+    }
+
+    Node* n = root;
+    int value = root->value;
+
+    while(n != NULL) {
+        value = n->value;
+        n = n->right;
+    }
+
+    return value;
 }
 
 
